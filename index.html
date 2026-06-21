@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>A message for ammu 🌹</title>
+<meta name="description" content="There are things I should have said sooner. This is my attempt." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F4F0E8;
+    --cream-card:#FBF8F2;
+    --wine:#6E2530;
+    --wine-soft:#8a3a44;
+    --ink:#4a4440;
+    --muted:#8a827b;
+    --rose:#c75d6a;
+    --line:rgba(110,37,48,.14);
+    --shadow:0 18px 50px -22px rgba(110,37,48,.35);
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:"Cormorant Garamond",Georgia,serif;
+    min-height:100vh;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* subtle paper grain + glow */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background:
+      radial-gradient(120% 80% at 50% 0%, rgba(199,93,106,.10), transparent 55%),
+      radial-gradient(80% 60% at 50% 100%, rgba(110,37,48,.06), transparent 60%);
+  }
+  .stage{position:relative;z-index:1;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px 22px 40px;}
+  .screen{display:none;width:100%;max-width:560px;text-align:center;animation:rise .7s cubic-bezier(.2,.7,.2,1) both;}
+  .screen.active{display:block;}
+  @keyframes rise{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+
+  .eyebrow{
+    font-family:"Jost",sans-serif;font-weight:500;
+    letter-spacing:.32em;text-transform:uppercase;font-size:12px;
+    color:var(--wine-soft);opacity:.85;margin-bottom:18px;
+  }
+  .eyebrow .star{color:var(--rose);margin:0 6px;}
+  h1.name{
+    font-family:"Fraunces",serif;font-weight:600;font-style:italic;
+    color:var(--wine);font-size:clamp(58px,18vw,104px);line-height:.95;
+    margin:0 0 18px;letter-spacing:-.01em;
+  }
+  .display{
+    font-family:"Fraunces",serif;font-weight:600;color:var(--wine);
+    font-size:clamp(34px,8.5vw,52px);line-height:1.08;margin:0 0 14px;letter-spacing:-.01em;
+  }
+  .display.italic{font-style:italic;font-weight:500;}
+  .lead{font-size:clamp(20px,5vw,26px);color:var(--ink);line-height:1.45;margin:0 auto;max-width:30ch;}
+  .lead em{color:var(--wine-soft);}
+  .sub{font-size:18px;color:var(--muted);line-height:1.5;margin:10px auto 0;max-width:34ch;}
+
+  .btn{
+    font-family:"Jost",sans-serif;font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:14px;
+    color:#fff;background:linear-gradient(135deg,var(--wine),var(--wine-soft));
+    border:none;border-radius:60px;padding:18px 34px;margin-top:30px;cursor:pointer;
+    box-shadow:var(--shadow);transition:transform .18s ease, box-shadow .18s ease, opacity .2s;
+    display:inline-flex;align-items:center;gap:10px;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn:active{transform:translateY(0) scale(.98);}
+  .btn.ghost{background:transparent;color:var(--wine);border:1.5px solid var(--line);box-shadow:none;}
+  .heartbeat{display:inline-block;animation:beat 1.1s ease-in-out infinite;}
+  @keyframes beat{0%,100%{transform:scale(1);}15%{transform:scale(1.25);}30%{transform:scale(1);}45%{transform:scale(1.18);}}
+
+  .counter-label{font-family:"Jost",sans-serif;letter-spacing:.24em;text-transform:uppercase;font-size:11px;color:var(--muted);margin-top:42px;}
+  .counter{font-family:"Fraunces",serif;font-style:italic;color:var(--rose);font-size:34px;margin-top:6px;}
+
+  /* ---- heart loader ---- */
+  .bigheart{font-size:84px;line-height:1;filter:drop-shadow(0 10px 24px rgba(199,93,106,.4));}
+  .barwrap{margin:34px auto 0;max-width:300px;height:9px;border-radius:20px;background:rgba(110,37,48,.12);overflow:hidden;}
+  .bar{height:100%;width:0%;border-radius:20px;background:linear-gradient(90deg,var(--rose),var(--wine));transition:width .25s linear;}
+  .loadmsg{font-style:italic;font-size:20px;color:var(--ink);margin-top:22px;min-height:28px;}
+  .loadpct{font-family:"Jost",sans-serif;font-size:12px;letter-spacing:.2em;color:var(--muted);margin-top:8px;}
+
+  /* ---- letter cards ---- */
+  .cards{display:flex;flex-direction:column;gap:18px;text-align:left;margin-top:10px;}
+  .card{
+    background:var(--cream-card);border:1px solid var(--line);border-radius:18px;
+    padding:24px 24px 22px;box-shadow:0 10px 30px -20px rgba(110,37,48,.4);
+    opacity:0;transform:translateY(16px);
+  }
+  .card.show{animation:rise .6s ease both;}
+  .card .quote{font-family:"Fraunces",serif;font-style:italic;font-weight:500;color:var(--wine);font-size:clamp(22px,5.6vw,28px);line-height:1.2;}
+  .card .note{font-size:17px;color:var(--muted);margin-top:8px;line-height:1.4;}
+
+  /* ---- meter ---- */
+  .meterbox{background:var(--cream-card);border:1px solid var(--line);border-radius:22px;padding:34px 26px;box-shadow:var(--shadow);}
+  .meternum{font-family:"Fraunces",serif;font-weight:700;color:var(--wine);font-size:clamp(64px,17vw,96px);line-height:1;margin:8px 0;}
+  .meterbar-wrap{height:12px;border-radius:20px;background:rgba(110,37,48,.12);overflow:hidden;margin:6px 0 14px;}
+  .meterbar{height:100%;width:0%;border-radius:20px;background:linear-gradient(90deg,#e0a64b,var(--rose),var(--wine));transition:width .15s linear;}
+  .meter-error{font-family:"Jost",sans-serif;letter-spacing:.12em;font-size:13px;color:var(--rose);text-transform:uppercase;opacity:0;}
+  .meter-error.show{opacity:1;animation:shake .5s;}
+  @keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-5px);}75%{transform:translateX(5px);}}
+
+  /* ---- options ---- */
+  .options{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:28px;position:relative;}
+  .opt{font-family:"Jost",sans-serif;font-weight:600;font-size:15px;letter-spacing:.04em;padding:14px 22px;border-radius:50px;cursor:pointer;border:1.5px solid var(--line);background:var(--cream-card);color:var(--wine);transition:transform .15s,background .2s,color .2s;}
+  .opt:hover{transform:translateY(-2px);background:var(--wine);color:#fff;}
+  .opt.no{position:relative;}
+
+  /* finale */
+  .signoff{font-family:"Fraunces",serif;font-style:italic;color:var(--wine-soft);font-size:20px;margin-top:30px;}
+  .floaty{position:fixed;top:-40px;font-size:26px;z-index:5;pointer-events:none;animation:fall linear forwards;}
+  @keyframes fall{to{transform:translateY(108vh) rotate(360deg);opacity:.9;}}
+
+  .dots{display:flex;gap:7px;justify-content:center;margin-top:30px;}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--line);}
+  .dot.on{background:var(--wine);}
+
+  .tiny{font-family:"Jost",sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:34px;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none!important;transition:none!important;}
+    .card{opacity:1;transform:none;}
+  }
+</style>
+</head>
+<body>
+<div class="stage">
+
+  <!-- 1. INTRO -->
+  <section class="screen active" id="s-intro">
+    <div class="eyebrow"><span class="star">✦</span> A message for you <span class="star">✦</span></div>
+    <h1 class="name" id="nameEl">ammu</h1>
+    <p class="lead">There are things I should've said sooner.<br><em>This is my attempt.</em></p>
+    <p class="sub">(yes, I built an entire website to say sorry. that's the level we're at.)</p>
+    <div><button class="btn" id="readBtn"><span class="heartbeat">❤️</span> Read my heart</button></div>
+    <div class="counter-label">Seconds since I started missing you</div>
+    <div class="counter" id="missCounter">1</div>
+  </section>
+
+  <!-- 2. HEART LOADER (10s) -->
+  <section class="screen" id="s-load">
+    <div class="bigheart heartbeat">❤️‍🔥</div>
+    <p class="display italic" style="margin-top:18px;">Loading my heart…</p>
+    <div class="barwrap"><div class="bar" id="loadBar"></div></div>
+    <p class="loadmsg" id="loadMsg">Booting up emotions…</p>
+    <p class="loadpct" id="loadPct">0%</p>
+  </section>
+
+  <!-- 3. LETTERS -->
+  <section class="screen" id="s-letters">
+    <div class="eyebrow"><span class="star">✦</span> The honest part <span class="star">✦</span></div>
+    <div class="cards" id="cardWrap"></div>
+    <button class="btn" id="toMeter" style="margin-top:26px;">There's more →</button>
+  </section>
+
+  <!-- 4. FORGIVENESS METER -->
+  <section class="screen" id="s-meter">
+    <div class="eyebrow"><span class="star">✦</span> Completely scientific <span class="star">✦</span></div>
+    <h2 class="display" style="margin-bottom:6px;">The Forgiveness Meter™</h2>
+    <p class="sub" style="margin-top:4px;">Advanced AI is calculating exactly how much I deserve to be forgiven right now…</p>
+    <div class="meterbox" style="margin-top:24px;">
+      <div class="meternum" id="meterNum">???%</div>
+      <div class="meterbar-wrap"><div class="meterbar" id="meterBar"></div></div>
+      <div class="meter-error" id="meterErr">⚠ Error: too much love detected</div>
+    </div>
+    <button class="btn" id="toAsk" style="display:none;" >Okay okay, the real question →</button>
+  </section>
+
+  <!-- 5. OPTIONS -->
+  <section class="screen" id="s-ask">
+    <div class="bigheart">🥺</div>
+    <h2 class="display italic" style="margin-top:14px;">So… am I forgiven?</h2>
+    <p class="sub">choose wisely. (one of these buttons is very shy.)</p>
+    <div class="options" id="optWrap">
+      <button class="opt yes">Yes ❤️</button>
+      <button class="opt yes">Obviously yes</button>
+      <button class="opt yes">Fine… yes 🙄💕</button>
+      <button class="opt no" id="noBtn">No</button>
+    </div>
+  </section>
+
+  <!-- 6. FINALE -->
+  <section class="screen" id="s-final">
+    <div class="bigheart">🌹</div>
+    <h2 class="display italic" style="margin-top:16px;">You're still my favourite.</h2>
+    <p class="lead" style="margin-top:14px;">In every version of this life, in every universe that exists — <em>I'd still choose you.</em></p>
+    <p class="signoff" id="signEl">With everything I have — yours, always.</p>
+    <button class="btn ghost" id="replayBtn" style="margin-top:24px;">read it again ↺</button>
+    <div class="tiny">made for ammu • with way too much effort</div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  // ---- personalize via URL: ?name=ammu&from=YourName&msg=custom intro ----
+  var params = new URLSearchParams(location.search);
+  var name = (params.get('name')||'ammu').trim();
+  var from = (params.get('from')||'').trim();
+  document.getElementById('nameEl').textContent = name.toLowerCase();
+  document.title = 'A message for ' + name + ' 🌹';
+  if(from) document.getElementById('signEl').textContent = 'With everything I have — ' + from + ' 🤍';
+
+  function show(id){
+    document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('active');});
+    var el=document.getElementById(id); el.classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+    return el;
+  }
+
+  // live "missing you" counter on intro
+  var miss=1;
+  setInterval(function(){ var c=document.getElementById('missCounter'); if(c) c.textContent=(++miss).toLocaleString(); },1000);
+
+  // ---- 10 second heart loader ----
+  var loadMsgs=[
+    "Booting up emotions…","Locating the right words…","Quietly removing my ego…",
+    "Compiling 4,011 apologies…","Adding extra cuteness…","Double-checking I mean every word…",
+    "Almost there, please don't close this 🥹","Okay. Deep breath."
+  ];
+  document.getElementById('readBtn').addEventListener('click',function(){
+    show('s-load');
+    var dur=10000, start=Date.now();
+    var bar=document.getElementById('loadBar'), pct=document.getElementById('loadPct'), msg=document.getElementById('loadMsg');
+    var mi=0;
+    var msgTimer=setInterval(function(){ mi=(mi+1)%loadMsgs.length; msg.textContent=loadMsgs[mi]; },1250);
+    var tick=setInterval(function(){
+      var p=Math.min(1,(Date.now()-start)/dur);
+      bar.style.width=(p*100)+'%'; pct.textContent=Math.round(p*100)+'%';
+      if(p>=1){ clearInterval(tick); clearInterval(msgTimer); setTimeout(buildLetters,400); }
+    },80);
+  });
+
+  // ---- letters ----
+  var letters=[
+    {q:"You deserved better from me.",n:"Better patience. Better listening. I wasn't always who you needed — and I'm sorry."},
+    {q:"Even after every fight, my heart still picks you.",n:"That part was never in question. Not once."},
+    {q:"I miss us.",n:"The late-night talks. Laughing at nothing. The version of us that felt safe."},
+    {q:"You're still my favourite person.",n:"That hasn't changed. It won't."},
+    {q:"I'm genuinely sorry for the hurt I caused.",n:"Not the 'sorry to end the argument' kind. The real kind."}
+  ];
+  function buildLetters(){
+    var wrap=document.getElementById('cardWrap'); wrap.innerHTML='';
+    letters.forEach(function(l){
+      var d=document.createElement('div'); d.className='card';
+      d.innerHTML='<div class="quote">“'+l.q+'”</div><div class="note">'+l.n+'</div>';
+      wrap.appendChild(d);
+    });
+    show('s-letters');
+    var cards=wrap.querySelectorAll('.card');
+    cards.forEach(function(c,i){ setTimeout(function(){c.classList.add('show');},i*350); });
+  }
+
+  document.getElementById('toMeter').addEventListener('click',function(){ show('s-meter'); runMeter(); });
+
+  // ---- forgiveness meter (funny) ----
+  function runMeter(){
+    var num=document.getElementById('meterNum'), bar=document.getElementById('meterBar'),
+        err=document.getElementById('meterErr'), next=document.getElementById('toAsk');
+    num.textContent='???%'; bar.style.width='0%'; err.classList.remove('show'); next.style.display='none';
+    var v=0, t=setInterval(function(){
+      v+=Math.random()*9+4; if(v>=137){ v=137; clearInterval(t);
+        num.textContent='137%'; bar.style.width='100%';
+        setTimeout(function(){ err.classList.add('show'); num.textContent='∞%'; next.style.display='inline-flex'; },550);
+      } else { num.textContent=Math.round(v)+'%'; bar.style.width=Math.min(100,v)+'%'; }
+    },120);
+  }
+  document.getElementById('toAsk').addEventListener('click',function(){ show('s-ask'); });
+
+  // ---- options: shy "No" button ----
+  var noBtn=document.getElementById('noBtn');
+  function dodge(){
+    var maxX=window.innerWidth*0.34, maxY=110;
+    var x=(Math.random()*2-1)*maxX, y=(Math.random()*2-1)*maxY;
+    noBtn.style.transform='translate('+x+'px,'+y+'px) scale(0.92)';
+  }
+  noBtn.addEventListener('mouseenter',dodge);
+  noBtn.addEventListener('click',function(e){ e.preventDefault(); dodge(); noBtn.textContent=['No','Nope?','really?','can\'t catch me','try again 😜'][Math.floor(Math.random()*5)]; });
+  noBtn.addEventListener('touchstart',function(e){ e.preventDefault(); dodge(); },{passive:false});
+  document.querySelectorAll('.opt.yes').forEach(function(b){ b.addEventListener('click',function(){ show('s-final'); rain(); }); });
+
+  // ---- finale hearts ----
+  function rain(){
+    var icons=['🌹','❤️','🤍','🥹','✨','💌'];
+    for(var i=0;i<28;i++){ (function(i){ setTimeout(function(){
+      var s=document.createElement('div'); s.className='floaty'; s.textContent=icons[i%icons.length];
+      s.style.left=(Math.random()*100)+'vw'; var d=4+Math.random()*3;
+      s.style.animationDuration=d+'s'; s.style.fontSize=(18+Math.random()*22)+'px';
+      document.body.appendChild(s); setTimeout(function(){s.remove();},d*1000+200);
+    },i*120);})(i); }
+  }
+  document.getElementById('replayBtn').addEventListener('click',function(){ show('s-intro'); });
+})();
+</script>
+</body>
+</html>
