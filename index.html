@@ -155,6 +155,14 @@
   <section class="screen" id="s-letters">
     <div class="eyebrow"><span class="star">✦</span> The honest part <span class="star">✦</span></div>
     <div class="cards" id="cardWrap"></div>
+    <button class="btn" id="toTruth" style="margin-top:26px;">There's more →</button>
+  </section>
+
+  <!-- 3.5 THE WHOLE TRUTH -->
+  <section class="screen" id="s-truth">
+    <div class="eyebrow"><span class="star">✦</span> The whole truth <span class="star">✦</span></div>
+    <h2 class="display italic" style="margin-bottom:14px;">No more hiding it.</h2>
+    <div class="cards" id="truthWrap"></div>
     <button class="btn" id="toMeter" style="margin-top:26px;">There's more →</button>
   </section>
 
@@ -255,6 +263,25 @@
     var cards=wrap.querySelectorAll('.card');
     cards.forEach(function(c,i){ setTimeout(function(){c.classList.add('show');},i*350); });
   }
+
+  // ---- the whole truth (polished from the heart) ----
+  var truths=[
+    {q:"If I've felt distant lately, it was fear talking — not my heart.",n:"There's another boy, and even the smallest chance that he could come between us got into my head. I'm not perfect either. But I want to be the guy you actually want — and whether you accept this or not, I'm not giving up. I want you back."},
+    {q:"I don't think you stopped loving me. I think you got tired of parts of me.",n:"So those are the parts I'll fight to change, so you never feel like leaving again. I'm not staying because everyone knows about us. I'm staying because walking away from you the moment it got hard would make me a coward — and I refuse to be one."},
+    {q:"I'm choosing to fight for us, not run from us.",n:"Take all the space you need. Be cold, be silent, treat me however you have to until you can see I've truly changed. Give me a few months. And if I'm still the same person after that, you can leave for good — but I don't believe you'll have to."}
+  ];
+  function buildTruths(){
+    var wrap=document.getElementById('truthWrap'); wrap.innerHTML='';
+    truths.forEach(function(l){
+      var d=document.createElement('div'); d.className='card';
+      d.innerHTML='<div class="quote">“'+l.q+'”</div><div class="note">'+l.n+'</div>';
+      wrap.appendChild(d);
+    });
+    show('s-truth');
+    var cards=wrap.querySelectorAll('.card');
+    cards.forEach(function(c,i){ setTimeout(function(){c.classList.add('show');},i*350); });
+  }
+  document.getElementById('toTruth').addEventListener('click',buildTruths);
 
   document.getElementById('toMeter').addEventListener('click',function(){ show('s-meter'); runMeter(); });
 
